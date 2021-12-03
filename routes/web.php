@@ -14,4 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FrontendController@index')->name('front.index');
+Route::get('/calender', 'FrontendController@calender')->name('front.calender');
+Route::post('/addtocart', 'FrontendController@addtocart')->name('addtocart');
+Route::get('/cartitems', 'FrontendController@cartitems')->name('cartitems');
+Route::post('/checkout', 'FrontendController@checkoutSubmit')->name('checkout.submit');
+Route::get('/checkout', 'FrontendController@checkout')->name('checkout');
+Route::get('/removecart/{id}', 'FrontendController@removecart')->name('removecart');
 Route::get('/product/{id}', 'FrontendController@product')->name('front.product');
+
+Auth::routes();
+
+//Admin routes
+Route::group(['middleware' => ['auth', 'web', 'role']], function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/general/settings', 'ContentController@settings')->name('general.settings');
+    Route::post('/general/settings/store', 'ContentController@settingStore')->name('settings.store');
+
+    Route::get('/general/slider', 'ContentController@slider')->name('general.slider');
+    Route::post('/slider/store', 'ContentController@sliderStore')->name('slider.store');
+});
+
+Route::group(['middleware' => ['auth', 'web']], function() {
+    Route::get('/student/dashboard', 'StudentController@dashboard')->name('student.dashboard');
+    Route::post('/user/profileupdate', 'StudentController@profileupdate')->name('user.profileupdate');
+
+});

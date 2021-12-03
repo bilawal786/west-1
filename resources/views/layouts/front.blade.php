@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
 <head>
+    <?php
+    $content = \App\Content::find(1);
+    ?>
     <!-- Site Title-->
-    <title>Jose Lalanne</title>
+    <title>{{$content->sitename}}</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +19,7 @@
     <img src="{{asset('front/images/ie8-panel/warning_bar_0000_us.jpg')}}" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="{{asset('front/js/html5shiv.min.js')}}"></script>
     <![endif]-->
+    @yield('style')
 </head>
 <body>
 <!-- Page-->
@@ -34,8 +38,8 @@
                             <!-- RD Navbar Toggle-->
                             <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
                             <!-- RD Navbar Brand-->
-                            <div class="rd-navbar-brand"><a href="index.html" class="brand-name">
-                                    <img src="{{asset('front/images/logo.png')}}" alt="" width="174" height="53">
+                            <div class="rd-navbar-brand"><a href="{{route('front.index')}}" class="brand-name">
+                                    <img src="{{asset($content->logo)}}" alt="" style="height: 100px !important;">
                                 </a>
                             </div>
                         </div>
@@ -49,19 +53,28 @@
                                     <!-- RD Navbar Brand-->
                                     <div class="rd-navbar-brand">
                                         <a href="{{route('front.index')}}" class="brand-name">
-                                            <img src="{{asset('front/images/logo.png')}}" alt="">
+                                            <img style="height: 100px !important;" src="{{asset($content->logo)}}" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <!-- RD Navbar Nav-->
                                 <ul class="rd-navbar-nav">
                                     <li class="active"><a href="{{route('front.index')}}">Accueil</a></li>
-                                    <li><a href="classes.html">Vidéo</a></li>
-                                    <li><a href="#" onclick="return false">Réservation</a>
+                                    <li><a href="{{route('front.index')}}#video">Vidéo</a></li>
+                                    <li><a href="{{route('front.calender')}}">Réservation</a>
                                     </li>
-                                    <li><a href="#" onclick="return false">Instagram Feed</a>
+                                    <li><a href="{{route('front.index')}}#products">Nos produits</a>
+                                    </li>
+                                    <li><a href="{{route('front.index')}}#instagram" onclick="return false">Instagram Feed</a>
                                     </li>
                                     <li><a href="">Contact</a></li>
+                                    @guest
+                                    <li><a href="{{route('login')}}">Connexion</a></li>
+                                    @endguest
+
+                                    @auth
+                                        <li><a href="{{route('student.dashboard')}}"><i class="fa fa-user"></i> {{Auth::user()->fname}} {{Auth::user()->lname}}</a></li>
+                                    @endauth
                                     <li>
                                         <dl class="dl-horizontal-variant-1">
                                             <dt><span class="material-icons-location_on icon"></span></dt>
@@ -90,8 +103,8 @@
                         <!-- Social list-->
                         <div class="rd-navbar-social-panel">
                             <ul class="list-inline">
-                                <li><a href="#" class="icon icon-xs icon-dark icon-circle fa-facebook"></a></li>
-                                <li><a href="#" class="icon icon-xs icon-dark icon-circle fa-instagram"></a></li>
+                                <li><a href="{{$content->facebook}}" class="icon icon-xs icon-dark icon-circle fa-facebook"></a></li>
+                                <li><a href="{{$content->instagram}}" class="icon icon-xs icon-dark icon-circle fa-instagram"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -106,14 +119,14 @@
                 <div class="range range-sm-justify">
                     <div class="cell-xs-12 cell-md-3 cell-md-push-1 text-md-left">
                         <div class="rd-navbar-brand">
-                            <div class="brand-name"><a href="index.html"><img src="{{asset('front/images/logo-footer.png')}}" alt="" width="171" height="38"></a></div>
+                            <div class="brand-name"><a href="#"><img src="{{asset($content->footer_logo)}}" alt="" style="height: 100px !important;"></a></div>
                         </div>
                         <p class="copyright">&#169; &nbsp;<span id="copyright-year"></span>&nbsp; | &nbsp;<a href="terms.html" class="text-base">Privacy Policy</a></p>
                     </div>
                     <div class="cell-xs-12 cell-md-3 offset-top-20 offset-md-top-7 offset-lg-top-0 cell-md-push-3 text-md-right">
                         <ul class="list-inline">
-                            <li><a href="#" class="icon icon-xs icon-primary icon-circle icon-border fa-facebook"></a></li>
-                            <li><a href="#" class="icon icon-xs icon-primary icon-circle icon-border fa-instagram"></a></li>
+                            <li><a href="{{$content->facebook}}" class="icon icon-xs icon-primary icon-circle icon-border fa-facebook"></a></li>
+                            <li><a href="{{$content->instagram}}" class="icon icon-xs icon-primary icon-circle icon-border fa-instagram"></a></li>
                         </ul>
                     </div>
                     <div class="cell-xs-12 cell-md-6 offset-top-20 offset-md-top-7 offset-lg-top-0 cell-md-push-2">
@@ -121,13 +134,19 @@
                             <li>
                                 <dl class="dl-horizontal-variant-1 clearfix">
                                     <dt><span class="material-icons-location_on icon icon-dark icon-xs"></span></dt>
-                                    <dd><a href="#" class="text-sbold text-base">USA, LOS ANGELES, 901 East E Street, Wilmington, CA 90744</a></dd>
+                                    <dd><a href="#" class="text-sbold text-base">{{$content->address}}</a></dd>
                                 </dl>
                             </li>
                             <li>
                                 <dl class="dl-horizontal-variant-1 clearfix">
                                     <dt><span class="material-icons-local_phone icon icon-dark icon-xs"></span></dt>
-                                    <dd><a href="callto:#" class="text-bold text-base h6">(800) 123 1234</a></dd>
+                                    <dd><a href="callto:{{$content->phone}}" class="text-bold text-base h6">{{$content->phone}}</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="dl-horizontal-variant-1 clearfix">
+                                    <dt><span style="font-size: 20px" class="icon icon-md icon-primary material-icons-email icon icon-dark icon-xs"></span></dt>
+                                    <dd><a href="callto:{{$content->email}}" class="text-bold text-base h6">{{$content->email}}</a></dd>
                                 </dl>
                             </li>
                         </ul>
@@ -177,5 +196,6 @@
 <!-- Java script-->
 <script src="{{asset('front/js/core.min.js')}}"></script>
 <script src="{{asset('front/js/script.js')}}"></script>
+@yield('script')
 </body>
 </html>
