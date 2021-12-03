@@ -39,7 +39,7 @@
                             <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
                             <!-- RD Navbar Brand-->
                             <div class="rd-navbar-brand"><a href="{{route('front.index')}}" class="brand-name">
-                                    <img src="{{asset($content->logo)}}" alt="" style="height: 100px !important;">
+                                    <img src="{{asset($content->logo)}}" alt="" style="height: 50px !important;">
                                 </a>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                     <!-- RD Navbar Brand-->
                                     <div class="rd-navbar-brand">
                                         <a href="{{route('front.index')}}" class="brand-name">
-                                            <img style="height: 100px !important;" src="{{asset($content->logo)}}" alt="">
+                                            <img style="height: 50px !important;" src="{{asset($content->logo)}}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                 <div class="range range-sm-justify">
                     <div class="cell-xs-12 cell-md-3 cell-md-push-1 text-md-left">
                         <div class="rd-navbar-brand">
-                            <div class="brand-name"><a href="#"><img src="{{asset($content->footer_logo)}}" alt="" style="height: 100px !important;"></a></div>
+                            <div class="brand-name"><a href="#"><img src="{{asset($content->footer_logo)}}" alt="" style="height: 50px !important;"></a></div>
                         </div>
                         <p class="copyright">&#169; &nbsp;<span id="copyright-year"></span>&nbsp; | &nbsp;<a href="terms.html" class="text-base">Privacy Policy</a></p>
                     </div>
