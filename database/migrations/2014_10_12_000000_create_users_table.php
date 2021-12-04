@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('phone')->nullable();
+            $table->string('user_id')->nullable();
 //            1 = client , 0 = admin
             $table->integer('role')->default(1);
             $table->string('email')->unique();

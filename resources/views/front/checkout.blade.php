@@ -10,30 +10,30 @@
                 <div class="row offset-top-40 offset-lg-top-115">
                     <div class="col-xs-12 col-sm-6">
                         <h5>Détails de la facturation</h5>
-                            <div class="form-group col-xs-12 col-sm-6">
+                            <div class="form-group col-xs-12 col-sm-6 col-md-12">
                                 <label for="exampleInputName">prénom*</label>
-                                <input type="text" placeholder="prénom" id="exampleInputName" name="fname" value="{{$user->fname}}" class="form-control">
+                                <input type="text" placeholder="prénom" id="exampleInputName" name="fname" required value="{{$user->fname}}" class="form-control">
                             </div>
-                            <div class="form-group col-xs-12 col-sm-6">
+                            <div class="form-group col-xs-12 col-sm-6 col-md-12">
                                 <label for="exampleInputName2">Nom de famille*</label>
-                                <input type="text" placeholder="Nom de famille" name="lname" value="{{$user->lname}}" id="exampleInputName2" class="form-control">
+                                <input type="text" placeholder="Nom de famille" name="lname" value="{{$user->lname}}" required id="exampleInputName2" class="form-control">
                             </div>
-                            <div class="form-group col-xs-12 col-sm-6">
+                            <div class="form-group col-xs-12 col-sm-6 col-md-12">
                                 <label for="exampleInputEmail">adresse e-mail*</label>
-                                <input type="text" readonly placeholder="Adresse e-mail" name="email" value="{{$user->email}}" id="exampleInputEmail" class="form-control">
+                                <input type="text" placeholder="Adresse e-mail" name="email" value="{{$user->email}}" required id="exampleInputEmail" class="form-control">
                             </div>
-                            <div class="form-group col-xs-12 col-sm-6">
+                            <div class="form-group col-xs-12 col-sm-6 col-md-12">
                                 <label for="exampleInputPhone">Téléphone*</label>
-                                <input type="text" placeholder="Téléphone" name="phone" value="{{$user->phone}}" id="exampleInputPhone" class="form-control">
+                                <input type="text" placeholder="Téléphone" name="phone" value="{{$user->phone}}" required id="exampleInputPhone" class="form-control">
                             </div>
                             <div class="form-group col-xs-12">
                                 <label for="exampleInputCountry">Pays*</label>
                                 <!--Select 2-->
-                                <input type="text" placeholder="Pays" name="country" value="{{$user->country}}" id="exampleInputPhone" class="form-control">
+                                <input type="text" placeholder="Pays" name="country" value="{{$user->country}}" required id="exampleInputPhone" class="form-control">
                             </div>
                             <div class="form-group col-xs-12">
                                 <label for="exampleInputAddress">address*</label>
-                                <input type="text" placeholder="Apartment, suite, unit etc. (optional)" name="address" value="{{$user->address}}" class="form-control">
+                                <input type="text" placeholder="Apartment, suite, unit etc. (optional)" required name="address" value="{{$user->address}}" class="form-control">
                             </div>
 
                     </div>
@@ -66,6 +66,7 @@
                                 <tr class="bg-light">
                                     <th class="text-dark">Total</th>
                                     <th>{{$total}} €</th>
+                                    <input type="hidden" name="total" value="{{$total}}">
                                 </tr>
                                 </thead>
                             </table>

@@ -18,7 +18,7 @@ Route::get('/calender', 'FrontendController@calender')->name('front.calender');
 Route::post('/addtocart', 'FrontendController@addtocart')->name('addtocart');
 Route::get('/cartitems', 'FrontendController@cartitems')->name('cartitems');
 Route::post('/checkout', 'FrontendController@checkoutSubmit')->name('checkout.submit');
-Route::get('/checkout', 'FrontendController@checkout')->name('checkout');
+Route::get('/checkout', 'FrontendController@checkout')->name('checkout')->middleware('auth');
 Route::get('/removecart/{id}', 'FrontendController@removecart')->name('removecart');
 Route::get('/product/{id}', 'FrontendController@product')->name('front.product');
 
@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 
     Route::get('/general/slider', 'ContentController@slider')->name('general.slider');
     Route::post('/slider/store', 'ContentController@sliderStore')->name('slider.store');
+
+    Route::get('/orders/index/{status}', 'OrderController@index')->name('orders.index');
 });
 
 Route::group(['middleware' => ['auth', 'web']], function() {

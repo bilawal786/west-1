@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -65,11 +66,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+        ])->post('https://westindiescare.ikaedigital.com/api/register', [
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'role' => 2,
+            'password' => $data['password'],
+            'website' => 'Westindies Care Test Website 1',
         ]);
+        $body = $response->body();
+        $result  = json_decode($body);
+       if ($result->success == 'true'){
+           $user = User::create([
+               'fname' => $data['fname'],
+               'lname' => $data['lname'],
+               'email' => $data['email'],
+               'user_id' => $result->id,
+               'password' => Hash::make($data['password']),
+           ]);
+           return $user;
+       }else{
+           dd('Something wrong contact with administration');
+       }
+
     }
 }

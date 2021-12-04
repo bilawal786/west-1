@@ -63,7 +63,7 @@
                     <div class="col-lg-12">
                         <div class="tab">
                             <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Tableau de bord</button>
-                            <a href=""> <button class="tablinks">Produits</button></a>
+{{--                            <a href=""> <button class="tablinks">Produits</button></a>--}}
                             <button class="tablinks" onclick="openCity(event, 'Paris')">Mes Commandes</button>
                             <button class="tablinks" onclick="openCity(event, 'Tokyo')">Détails du compte</button>
                             <a href="{{route('logout')}}" onclick="event.preventDefault();
@@ -78,7 +78,7 @@
                         <div id="London" class="tabcontent">
                             <h5>Bonjour <b>{{Auth::user()->fname}} {{Auth::user()->lname}} , </b></h5>
                             <br>
-                            <h5> Bienvenue dans votre espace privé, vous y trouverez tout nos produits. à votre tarif praticiens.</h5>
+                            <h5> Bienvenue dans votre espace privé.</h5>
                             <br>
                             <h5> Vous y touverez egalement vos commandes, et le détails de votre compte.</h5>
                             <br>

@@ -57,7 +57,32 @@ class FrontendController extends Controller
 
     }
     public function checkoutSubmit(Request $request){
-        dd($request->all());
-        dd('Payment done');
+        $user = Auth::user();
+        $cartitems = \Cart::getContent();
+        $cart = json_encode($cartitems);
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+        ])->post('https://westindiescare.ikaedigital.com/api/websites/order', [
+            'website' => 'Westindies Care Test Website 1',
+            'user_id' => $user->user_id,
+            'cfname' => $request->fname,
+            'clname' => $request->lname,
+            'cemail' => $request->email,
+            'cphone' => $request->phone,
+            'caddress' => $request->address,
+            'notes' => $request->notes,
+            'total' => $request->total,
+            'postal' => '0000',
+            'cartitems' => $cart,
+        ]);
+        $body = $response->body();
+        $result  = json_decode($body);
+        if($result->success == 'Success'){
+            \Cart::clear();
+            return view('front.paymentsuccess', compact('user'));
+        }else {
+            dd('Something wrong contact with administration');
+        }
+
     }
 }
