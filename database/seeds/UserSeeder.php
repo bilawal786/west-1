@@ -50,5 +50,15 @@ class UserSeeder extends Seeder
                         Nous vous aidons à développer pour vous-même un style de vie sain, des habitudes diététiques et un régime alimentaire qui vont de pair avec ces besoins.',
             'aboutimage' => 'front/images/home_01/1.jpg',
         ]);
+        \App\Gallery::create([
+            'image1' => 'front/images/insta-1.jpg',
+            'image2' => 'front/images/insta-1.jpg',
+            'image3' => 'front/images/insta-1.jpg',
+            'image4' => 'front/images/insta-1.jpg',
+            'image5' => 'front/images/insta-1.jpg',
+            'image6' => 'front/images/insta-1.jpg',
+            'image7' => 'front/images/insta-1.jpg',
+            'image8' => 'front/images/insta-1.jpg',
+        ]);
     }
 }

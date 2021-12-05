@@ -28,6 +28,9 @@ Auth::routes();
 Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
 
+    Route::get('/general/gallery', 'ContentController@gallery')->name('general.gallery');
+    Route::post('/gallery/store', 'ContentController@galleryStore')->name('gallery.store');
+
     Route::get('/general/settings', 'ContentController@settings')->name('general.settings');
     Route::post('/general/settings/store', 'ContentController@settingStore')->name('settings.store');
 
@@ -35,6 +38,8 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::post('/slider/store', 'ContentController@sliderStore')->name('slider.store');
 
     Route::get('/orders/index/{status}', 'OrderController@index')->name('orders.index');
+    Route::get('/orders/view/{id}', 'OrderController@view')->name('order.view');
+    Route::get('/orders/status/{id}', 'OrderController@status')->name('order.status');
 });
 
 Route::group(['middleware' => ['auth', 'web']], function() {

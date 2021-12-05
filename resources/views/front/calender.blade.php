@@ -1,3 +1,5 @@
+@extends('layouts.front')
+@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             var initialLocaleCode = 'fr';
             var localeSelectorEl = document.getElementById('locale-selector');
-            var calendarEl = document.getElementById('calendar');
+            var calendarEl = document.getElementById('calendar1');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 headerToolbar: {
@@ -106,12 +108,6 @@
     </script>
     <style>
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-            font-size: 14px;
-        }
 
         #top {
             background: #eee;
@@ -130,9 +126,12 @@
     </style>
 </head>
 <body>
+<div class="container" style="margin-top: 150px">
+    <div id='calendar1'></div>
 
+</div>
 
-<div id='calendar'></div>
 
 </body>
 </html>
+@endsection

@@ -112,7 +112,7 @@
                         <ul class="ml-menu">
                             <li><a href="{{route('general.settings')}}">Réglages</a></li>
                             <li><a href="{{route('general.slider')}}">Carrousel</a></li>
-{{--                            <li><a href="{{route('general.mission')}}">Notre Mission</a></li>--}}
+                            <li><a href="{{route('general.gallery')}}">Galerie</a></li>
 {{--                            <li><a href="{{route('general.video')}}">Video</a></li>--}}
 {{--                            <li><a href="{{route('general.about')}}">À propos de nous</a></li>--}}
 {{--                            <li><a href="{{route('general.blog')}}">Blog</a></li>--}}

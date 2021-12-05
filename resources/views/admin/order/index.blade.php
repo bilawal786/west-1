@@ -43,9 +43,9 @@
                                         @endif
                                     </td>
                                     <td>
-{{--                                        <a href="{{route('admin.order.view' , ['id'=>$row->id])}}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="View">--}}
-{{--                                            <i class="material-icons">remove_red_eye</i>--}}
-{{--                                        </a>--}}
+                                        <a href="{{route('order.view' , ['id'=>$row->id])}}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="View">
+                                            <i class="material-icons">remove_red_eye</i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

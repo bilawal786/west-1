@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Content;
+use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -11,9 +12,10 @@ class FrontendController extends Controller
 {
     public function index(){
         $gs = Content::find(1);
+        $gallery = Gallery::find(1);
         $response = Http::get('https://westindiescare.ikaedigital.com/api/products');
         $products = $response->json();
-        return view('front.index', compact('products', 'gs'));
+        return view('front.index', compact('products', 'gs', 'gallery'));
     }
     public function product($id){
         $response = Http::get('https://westindiescare.ikaedigital.com/api/product/'.$id);

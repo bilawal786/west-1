@@ -125,19 +125,19 @@
             <div class="container">
                 <div class="heading-variant-4">
                     <p><span class="icon icon-sm icon-dark fl-bigmug-line-photo181"></span></p>
-                    <h1>Instagram feeds</h1>
+                    <h1>Galerie</h1>
                 </div>
                 <!-- RD Instafeed-->
             </div>
             <div data-photo-swipe-gallery="gallery" class="range range-condensed offset-top-40">
-                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="#" class="img-thumbnail-variant-3"><img src="{{asset('front/images/insta-1.jpg')}}" alt=""></a></div>
-                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="#" class="img-thumbnail-variant-3"><img src="{{asset('front/images/insta-1.jpg')}}" alt=""></a></div>
-                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="#" class="img-thumbnail-variant-3"><img src="{{asset('front/images/insta-1.jpg')}}" alt=""></a></div>
-                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="#" class="img-thumbnail-variant-3"><img src="{{asset('front/images/insta-1.jpg')}}" alt=""></a></div>
-                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="#" class="img-thumbnail-variant-3"><img src="{{asset('front/images/insta-1.jpg')}}" alt=""></a></div>
-                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="#" class="img-thumbnail-variant-3"><img src="{{asset('front/images/insta-1.jpg')}}" alt=""></a></div>
-                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="#" class="img-thumbnail-variant-3"><img src="{{asset('front/images/insta-1.jpg')}}" alt=""></a></div>
-                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="#" class="img-thumbnail-variant-3"><img src="{{asset('front/images/insta-1.jpg')}}" alt=""></a></div>
+                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="{{asset($gallery->image1)}}" class="img-thumbnail-variant-3"><img src="{{asset($gallery->image1)}}" alt=""></a></div>
+                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="{{asset($gallery->image2)}}" class="img-thumbnail-variant-3"><img src="{{asset($gallery->image2)}}" alt=""></a></div>
+                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="{{asset($gallery->image3)}}" class="img-thumbnail-variant-3"><img src="{{asset($gallery->image3)}}" alt=""></a></div>
+                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="{{asset($gallery->image4)}}" class="img-thumbnail-variant-3"><img src="{{asset($gallery->image4)}}" alt=""></a></div>
+                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="{{asset($gallery->image5)}}" class="img-thumbnail-variant-3"><img src="{{asset($gallery->image5)}}" alt=""></a></div>
+                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="{{asset($gallery->image6)}}" class="img-thumbnail-variant-3"><img src="{{asset($gallery->image6)}}" alt=""></a></div>
+                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="{{asset($gallery->image7)}}" class="img-thumbnail-variant-3"><img src="{{asset($gallery->image7)}}" alt=""></a></div>
+                <div class="cell-xs-12 cell-sm-6 cell-md-3"><a data-photo-swipe-item="" data-size="1200x800" href="{{asset($gallery->image8)}}" class="img-thumbnail-variant-3"><img src="{{asset($gallery->image8)}}" alt=""></a></div>
 
             </div>
 
