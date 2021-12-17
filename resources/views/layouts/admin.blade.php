@@ -74,7 +74,7 @@
 
         <li><a href="javascript:void(0);" class="fullscreen" data-provide="fullscreen"><i class="zmdi zmdi-fullscreen"></i></a></li>
         <li class="power">
-            <a href="javascript:void(0);" class="js-right-sidebar"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+            <a href="{{route('profile')}}" class="js-right-sidebar"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
             <a href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                class="mega-menu">
